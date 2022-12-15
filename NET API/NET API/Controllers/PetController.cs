@@ -23,7 +23,6 @@ namespace NET_API.Controllers
         [Route("add")]
         public dynamic addPet(Pet p)
         {
-            p._id = 3;
             s.AddPet(p);
 
             return new
@@ -35,22 +34,22 @@ namespace NET_API.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{_id}")]
         [Route("delete")]
-        public dynamic deletePet(Pet p)
-        {    
-            s.DeletePet(p);
+        public dynamic deletePet(int _id)
+        {
+            s.DeletePet(_id);
             return new
             {
                 succes = true,
                 message = "Succesfull delete",
-                result = p
+                result = "hola"
             };
 
         }
 
 
-        [HttpPut]
+        [HttpPut("{id}")]
         [Route("update")]
         public dynamic updatePet(Pet p, string name, string type, int age)
         {     

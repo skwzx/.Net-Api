@@ -22,7 +22,8 @@
 
         public void AddPet(Pet p)
         {
-            pets.Add(p);
+            Pet pet = new Pet(p._name, p._type, p._age);
+            pets.Add(pet);
         }
 
         public List<Pet> GetPets()
@@ -42,18 +43,17 @@
         }
 
         private void PreLoad() {
-            Pet pet1 = new Pet(1, "Tokyo", "Cat", 1);
-            Pet pet2 = new Pet(2, "Roma", "Cat", 2);
-
-            AddPet(pet1);
-            AddPet(pet2);
+            Pet pet1 = new Pet("Tokyo", "Cat", 1);
+            Pet pet2 = new Pet("Roma", "Cat", 2);
+            pets.Add(pet1);
+            pets.Add(pet2);
         }
 
-        public void DeletePet(Pet p)
+        public void DeletePet(int id)
         {
             foreach (Pet pet in pets)
             {
-                if (pet._id == p._id)
+                if (pet._id == id)
                 {
                     pets.Remove(pet);
                 }

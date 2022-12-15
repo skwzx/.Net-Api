@@ -2,6 +2,7 @@
 {
     public class Pet
     {
+        public static int _Lastid { get; set; } = 1;
         public int _id { get; set; }
         public string _name { get; set; }
         public string  _type { get; set; }
@@ -11,9 +12,10 @@
         {
         }
 
-        public Pet(int id, string name, string type, int age)
+        public Pet(string name, string type, int age)
         {
-            _id = id;
+            _id = _Lastid;
+            _Lastid++;
             _name = name;
             _type = type;
             _age = age;
